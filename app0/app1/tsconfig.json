@@ -1,0 +1,10 @@
+{
+  "compilerOptions": {
+    "jsx": "react",
+    "esModuleInterop": true,
+    "strictNullChecks": true,
+    "module": "esnext",
+    "moduleResolution": "node"
+  },
+  "include": ["src/**/*"]
+}

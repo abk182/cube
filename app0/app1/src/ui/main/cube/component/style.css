@@ -1,0 +1,16 @@
+.cube {
+    position: relative;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    background-color: burlywood;
+}
+
+.inputs{
+    position: absolute;
+    top: var(--gap-xs);
+    left: var(--gap-xs);
+    box-shadow: 0px 0px var(--gap-xs) black;
+    display: flex;
+    flex-flow: column;
+}

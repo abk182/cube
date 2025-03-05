@@ -1,0 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+    display: flex;
+    align-items: center;
+    flex-flow: column;
+}
+
+.ui {
+    background-color: greenyellow;
+}
+
+:root {
+    --gap-xs: 4px;
+}
