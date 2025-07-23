@@ -1,8 +1,7 @@
 import React from "react";
 import useScriptLoader from "./script-loader";
 
-export const rootDomNodeId = "app0.app0";
-import styles from "./index.css";
+import styles from "./index.module.css";
 
 import "./index.global.css";
 

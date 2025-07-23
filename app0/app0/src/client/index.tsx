@@ -1,6 +1,7 @@
 import React from "react";
 import { hydrateRoot } from "react-dom/client";
-import { Ui, rootDomNodeId } from "../ui";
+import { Ui } from "../ui";
+import { rootDomNodeId } from "../../config";
 
 const node = document.getElementById(rootDomNodeId);
 
