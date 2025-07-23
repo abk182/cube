@@ -10,7 +10,10 @@ body {
 
 .ui {
     background-color: greenyellow;
-    padding: var(--gap-xs)
+    padding: var(--gap-xs);
+    & > .button {
+        margin: 10px;
+    }
 }
 
 :root {

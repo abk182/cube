@@ -2,7 +2,7 @@ import React from "react";
 
 import styles from "./index.module.css";
 
-export const Button = () => {
+export const Button = ({ className }: { className?: string }) => {
   const handleClick = () => {
     const loadScript = () => {
       const element = document.createElement("script");
@@ -15,7 +15,10 @@ export const Button = () => {
     loadScript();
   };
   return (
-    <button className={styles.button} onClick={handleClick}>
+    <button
+      className={className ? `${className} ${styles.button}` : styles.button}
+      onClick={handleClick}
+    >
       GO!
     </button>
   );
