@@ -3,24 +3,28 @@ import { renderToString } from "react-dom/server";
 import { Express } from "express";
 import fs from "fs";
 import { Ui } from "../../ui";
-import {
-  rootDomNodeId,
-} from "../../../config";
+import { rootDomNodeId } from "../../../config";
+import path from "path";
+
+let manifest: {
+  entries?: { index?: { initial?: { js?: string[]; css?: string[] } } };
+};
+
+fs.promises
+  .readFile(path.join(__dirname, "manifest.json"), "utf-8")
+  .then((file) => {
+    manifest = JSON.parse(file);
+  });
 
 export const initIndexRoute = (app: Express) => {
   app.get("/", async (req, res) => {
-    let rawManifest = await fs.promises.readFile("manifest.json", "utf-8");
-    let manifest: {
-      entries: { index: { initial: { js: string[]; css: string[] } } };
-    } = JSON.parse(rawManifest);
-
-    let scripts = manifest.entries.index.initial.js
-      .map(
+    let scripts = manifest?.entries?.index?.initial?.js
+      ?.map(
         (src) => `<script type="text/javascript" src="${src}" defer></script>`
       )
       .join("\n");
-    let styles = manifest.entries.index.initial.css
-      .map(
+    let styles = manifest?.entries?.index?.initial?.css
+      ?.map(
         (href) =>
           `<link rel="stylesheet" type="text/css" href="${href}" as="style">`
       )
