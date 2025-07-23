@@ -14,21 +14,11 @@ export default defineConfig({
       output: {
         // Use 'web' target for the browser outputs
         target: "web",
-        filename: {
-          js: `${clientBundleName}.js`,
-          css: `${clientBundleName}.css`,
-        },
-        distPath: {
-          root: "dist",
-          js: `${staticFilesFolderName}`,
-          css: `${staticFilesFolderName}`,
-        },
         manifest: true
       },
       html: {
         mountId: rootDomNodeId,
       },
-      performance: { chunkSplit: { strategy: "all-in-one" } },
     },
     // Configure the node environment for SSR
     node: {
