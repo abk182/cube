@@ -1,4 +1,8 @@
 .app0 {
     width: 100%;
-    text-align: center;
+    text-align: center; 
+
+    & > .main {
+        border: 1px seagreen solid;
+    }
 }

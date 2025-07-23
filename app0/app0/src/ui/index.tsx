@@ -8,7 +8,9 @@ import "./index.global.css";
 export const Ui = () => {
   return (
     <div className={`ui ${styles.app0}`}>
-      <Button className="button" />
+      <main className={`main ${styles.main}`}>
+        <Button className="button" />
+      </main>
     </div>
   );
 };
