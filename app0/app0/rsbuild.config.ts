@@ -23,6 +23,7 @@ export default defineConfig({
           js: `${staticFilesFolderName}`,
           css: `${staticFilesFolderName}`,
         },
+        manifest: true
       },
       html: {
         mountId: rootDomNodeId,
@@ -33,7 +34,7 @@ export default defineConfig({
     node: {
       source: {
         entry: {
-          index: "./src/server/index.tsx",
+          index: "./src/server/index.ts",
         },
       },
       output: {
