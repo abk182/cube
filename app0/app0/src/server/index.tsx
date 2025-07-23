@@ -23,10 +23,12 @@ const startServer = () => {
     res.end(
       `<!DOCTYPE html>
           <html>
+            <head> 
+              <script type="text/javascript" src="${staticFilesFolderName}/${clientBundleName}.js" defer></script>
+              <link rel="stylesheet" type="text/css" href="${staticFilesFolderName}/${clientBundleName}.css" as="style">
+            </head>
             <body>
               <div id=${rootDomNodeId}>${renderToString(<Ui />)}</div>
-              <script type="text/javascript" src="${staticFilesFolderName}/${clientBundleName}.js"></script>
-              <link rel="stylesheet" type="text/css" href="${staticFilesFolderName}/${clientBundleName}.css" as="style">
             </body>
           </html>`
     );
