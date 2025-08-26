@@ -1,6 +1,3 @@
 .button {
-    text-align: center;
-    width: 100px;
-    height: 100px;
-    background-color: azure;
+    margin: 10px;
 }
