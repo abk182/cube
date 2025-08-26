@@ -8,7 +8,8 @@
     "start:dist": "cd ./dist && node ./index.js",
     "start": "npm run build && npm run start:dist",
     "dev": "rsbuild dev",
-    "build": "rm -r -f ./dist && rsbuild build"
+    "stats": "RSDOCTOR=true npm run build",
+    "build": "rsbuild build"
   },
   "author": "",
   "license": "ISC",

@@ -21,6 +21,7 @@ export default defineConfig({
         // Use 'web' target for the browser outputs
         target: "web",
         manifest: true,
+        cleanDistPath: true,
       },
       html: {
         mountId: rootDomNodeId,
@@ -36,6 +37,7 @@ export default defineConfig({
       output: {
         // Use 'node' target for the Node.js outputs
         target: "node",
+        cleanDistPath: true,
         externals: ["express", "remote/Ui"],
       },
     },
