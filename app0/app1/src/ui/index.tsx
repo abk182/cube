@@ -12,3 +12,5 @@ export const Ui = () => {
     </div>
   );
 };
+
+export default Ui;

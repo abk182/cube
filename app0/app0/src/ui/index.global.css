@@ -12,6 +12,9 @@ body {
     background-color: greenyellow;
     & > .main {
         padding: var(--gap-xs);
+        display: flex;
+        align-items: center;
+        flex-flow: column;
     }
 }
 

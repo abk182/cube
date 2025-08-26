@@ -1,5 +1,6 @@
 import React from "react";
-import { Button } from "./button";
+import { AppInjector } from "./app-injector";
+import { FederatedModuleInjector } from "./federated-module-injector";
 
 import styles from "./index.module.css";
 
@@ -9,7 +10,8 @@ export const Ui = () => {
   return (
     <div className={`ui ${styles.app0}`}>
       <main className={`main ${styles.main}`}>
-        <Button className="button" />
+        <AppInjector className="button" />
+        <FederatedModuleInjector className="button" />
       </main>
     </div>
   );

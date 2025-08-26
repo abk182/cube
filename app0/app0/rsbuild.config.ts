@@ -1,8 +1,14 @@
 import { defineConfig } from "@rsbuild/core";
-import { clientBundleName, rootDomNodeId, staticFilesFolderName } from "./config";
+import {
+  clientBundleName,
+  rootDomNodeId,
+  staticFilesFolderName,
+} from "./config";
+import { pluginModuleFederation } from "@module-federation/rsbuild-plugin";
+import mfConfig from "./module-federation.config";
 
 export default defineConfig({
-  plugins: [],
+  plugins: [pluginModuleFederation(mfConfig)],
   environments: {
     // Configure the web environment for browsers
     web: {
@@ -14,7 +20,7 @@ export default defineConfig({
       output: {
         // Use 'web' target for the browser outputs
         target: "web",
-        manifest: true
+        manifest: true,
       },
       html: {
         mountId: rootDomNodeId,
@@ -30,7 +36,7 @@ export default defineConfig({
       output: {
         // Use 'node' target for the Node.js outputs
         target: "node",
-        externals: ['express']
+        externals: ["express", "remote/Ui"],
       },
     },
   },

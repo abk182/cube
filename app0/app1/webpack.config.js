@@ -1,4 +1,8 @@
 const path = require("path");
+const {
+  ModuleFederationPlugin,
+} = require("@module-federation/enhanced/webpack");
+const mfConfig = require("./module-federation.config");
 
 const config = {
   mode: "development",
@@ -65,4 +69,17 @@ const clientConfig = Object.assign(
   config
 );
 
-module.exports = [serverConfig, clientConfig];
+const remoteUiConfig = Object.assign(
+  {
+    target: "web",
+    entry: "./src/ui/index.tsx",
+    output: {
+      filename: "[name].js",
+      path: path.resolve(__dirname, "dist/ui"),
+    },
+    plugins: [new ModuleFederationPlugin(mfConfig)],
+  },
+  config
+);
+
+module.exports = [serverConfig, clientConfig, remoteUiConfig];
