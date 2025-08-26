@@ -69,17 +69,17 @@ const clientConfig = Object.assign(
   config
 );
 
-const wmfConfig = Object.assign(
+const remoteUiConfig = Object.assign(
   {
     target: "web",
-    entry: "./src/ui/button/index.tsx",
+    entry: "./src/ui/index.tsx",
     output: {
       filename: "[name].js",
-      path: path.resolve(__dirname, "dist/button"),
+      path: path.resolve(__dirname, "dist/ui"),
     },
     plugins: [new ModuleFederationPlugin(mfConfig)],
   },
   config
 );
 
-module.exports = [serverConfig, clientConfig, wmfConfig];
+module.exports = [serverConfig, clientConfig, remoteUiConfig];

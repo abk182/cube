@@ -36,7 +36,7 @@ export default defineConfig({
       output: {
         // Use 'node' target for the Node.js outputs
         target: "node",
-        externals: ["express", "remote/Button"],
+        externals: ["express", "remote/Ui"],
       },
     },
   },

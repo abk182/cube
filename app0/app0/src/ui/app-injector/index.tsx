@@ -2,7 +2,7 @@ import React from "react";
 
 import styles from "./index.module.css";
 
-export const Button = ({ className }: { className?: string }) => {
+export const AppInjector = ({ className }: { className?: string }) => {
   const handleClick = () => {
     const loadScript = () => {
       const element = document.createElement("script");
@@ -19,7 +19,9 @@ export const Button = ({ className }: { className?: string }) => {
       className={className ? `${className} ${styles.button}` : styles.button}
       onClick={handleClick}
     >
-      GO!
+      {
+        'Inject app by dowloading "/client.js" and inserting <script> tag into html'
+      }
     </button>
   );
 };

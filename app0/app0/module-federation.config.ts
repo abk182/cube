@@ -1,15 +1,15 @@
-import { createModuleFederationConfig } from '@module-federation/rsbuild-plugin';
+import { createModuleFederationConfig } from "@module-federation/rsbuild-plugin";
 
 export default createModuleFederationConfig({
-  name: 'host',
+  name: "host",
   remotes: {
-    remote: 'remote@http://localhost:8081/button/remoteEntry.js',
+    remote: "remote@http://localhost:8081/ui/remoteEntry.js",
   },
   shared: {
     react: {
       singleton: true,
     },
-    'react-dom': {
+    "react-dom": {
       singleton: true,
     },
   },

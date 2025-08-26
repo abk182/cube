@@ -1,7 +1,7 @@
 module.exports = {
   name: 'remote',
   exposes: {
-    "./Button": "./src/ui/Button/index.tsx",
+    "./Ui": "./src/ui/index.tsx",
   },
   filename: 'remoteEntry.js',
   shared: {
