@@ -18,17 +18,19 @@ fs.promises
 
 export const initIndexRoute = (app: Express) => {
   app.get("/", async (req, res) => {
-    let scripts = manifest?.entries?.index?.initial?.js
-      ?.map(
-        (src) => `<script type="text/javascript" src="${src}" defer></script>`
-      )
-      .join("\n");
-    let styles = manifest?.entries?.index?.initial?.css
-      ?.map(
-        (href) =>
-          `<link rel="stylesheet" type="text/css" href="${href}" as="style">`
-      )
-      .join("\n");
+    let scripts =
+      manifest?.entries?.index?.initial?.js
+        ?.map(
+          (src) => `<script type="text/javascript" src="${src}" defer></script>`
+        )
+        .join("\n") || "";
+    let styles =
+      manifest?.entries?.index?.initial?.css
+        ?.map(
+          (href) =>
+            `<link rel="stylesheet" type="text/css" href="${href}" as="style">`
+        )
+        .join("\n") || "";
 
     res.end(
       `<!DOCTYPE html>
