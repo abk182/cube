@@ -1,0 +1,23 @@
+{
+  "name": "cube",
+  "version": "1.0.0",
+  "description": "Just cube",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/abk182/cube.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/abk182/cube/issues"
+  },
+  "homepage": "https://github.com/abk182/cube#readme",
+  "workspaces": [
+    "packages/app0",
+    "packages/app1"
+  ]
+}

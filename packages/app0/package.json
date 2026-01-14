@@ -1,0 +1,6 @@
+{
+  "name": "@cube/app0",
+  "type": "module",
+  "private": true,
+  "main": "./index.js"
+}
