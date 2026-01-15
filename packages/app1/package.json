@@ -1,12 +1,12 @@
 {
-  "name": "app0.app1",
+  "name": "@cube/app1",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "private": true,
+  "main": "./index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build:wasm": "cd ./src/wasm/rust && wasm-pack build && cd ../../../../",
-    "build": "npm run build:wasm && webpack",
+    "build": "webpack",
     "start:dist": "node ./dist/server.js",
     "start": "npm run build && npm run start:dist"
   },
@@ -16,8 +16,7 @@
     "cors": "2.8.5",
     "express": "4.18.2",
     "react": "18.2.0",
-    "react-dom": "18.2.0",
-    "wasm": "file:./src/wasm/rust/pkg"
+    "react-dom": "18.2.0"
   },
   "devDependencies": {
     "@module-federation/enhanced": "^0.18.3",

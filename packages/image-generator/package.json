@@ -1,0 +1,16 @@
+{
+  "name": "@cube/image-generator",
+  "version": "1.0.0",
+  "main": "src/index.ts",
+  "devDependencies": {
+    "wasm": "file:./src/rust/pkg",
+    "wasm-pack": "^0.13.1"
+  },
+  "scripts": {
+    "build": "wasm-pack build ./src/rust",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}

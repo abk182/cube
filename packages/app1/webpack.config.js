@@ -52,7 +52,6 @@ const serverConfig = Object.assign(
     output: {
       filename: "server.js",
       path: path.resolve(__dirname, "dist"),
-      clean: true,
     },
   },
   config
@@ -65,7 +64,6 @@ const clientConfig = Object.assign(
     output: {
       filename: "client.js",
       path: path.resolve(__dirname, "dist"),
-      clean: true,
     },
   },
   config
@@ -78,11 +76,14 @@ const remoteUiConfig = Object.assign(
     output: {
       filename: "[name].js",
       path: path.resolve(__dirname, "dist/ui"),
-      clean: true,
     },
     plugins: [new ModuleFederationPlugin(mfConfig)],
   },
   config
 );
 
-module.exports = [serverConfig, clientConfig, remoteUiConfig];
+module.exports = [
+  serverConfig,
+  clientConfig,
+  remoteUiConfig,
+];

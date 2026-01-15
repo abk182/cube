@@ -1,21 +1,21 @@
 import React, { useEffect, useState } from "react";
-import { useWasm } from "../../../../wasm/use-wasm";
 import { Image } from "./image";
 import styles from "./style.css";
+import { useImageAsUnit8Array } from "./use-image-as-unit-8-array";
 
 export const Cube = () => {
-  const wasm = useWasm();
   const [width, setWidth] = useState(400);
   const [height, setHeight] = useState(400);
   const [x, setX] = useState(10);
   const [y, setY] = useState(10);
   const [z, setZ] = useState(10);
   const [animated, setAnimated] = useState(false);
+  const unit8Array = useImageAsUnit8Array(width, height, x, y, z);
 
   useEffect(() => {
     let interval;
 
-    if (animated && wasm) {
+    if (animated) {
       interval = setInterval(() => {
         setY((y) => y + 1);
         setX((x) => x + 2);
@@ -28,7 +28,7 @@ export const Cube = () => {
         clearInterval(interval);
       }
     };
-  }, [wasm, animated]);
+  }, [animated]);
 
   return (
     <div className={styles.cube}>
@@ -81,12 +81,8 @@ export const Cube = () => {
           {animated ? "Stop" : "Start"}
         </button>
       </div>
-      {wasm && height > 0 && width > 0 ? (
-        <Image
-          width={width}
-          height={height}
-          data={wasm.draw_cube(width, height, x, y, z)}
-        />
+      {unit8Array ? (
+        <Image width={width} height={height} data={unit8Array} />
       ) : (
         "loading wasm module..."
       )}
