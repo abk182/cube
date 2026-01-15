@@ -5,7 +5,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "npm run build --workspaces --if-present",
-    "start": "npm run start --workspace=packages/app1 npm run start --workspace=packages/app0"
+    "start": "npm run start --workspace=packages/app1 & npm run start --workspace=packages/app0"
   },
   "repository": {
     "type": "git",
