@@ -1,12 +1,13 @@
 import { useEffect, useRef, useState } from "react";
 import { sleep } from "../utils/sleep";
+import { imageGenerator } from '@cube/image-generator';
 
 export const useWasm = () => {
   const [wasmReady, setWasmReady] = useState(false);
-  const wasmRef = useRef<typeof import("wasm") | null>(null);
+  const wasmRef = useRef<Awaited<ReturnType<typeof imageGenerator>> | null>(null);
   useEffect(() => {
     sleep().then(() =>
-      import("wasm").then((m) => {
+      imageGenerator().then((m) => {
         wasmRef.current = m;
         setWasmReady(true);
       })
