@@ -1,5 +1,6 @@
-export const imageGenerator = () => {
-    console.log('hi from ig in ts')
-}
-
-export type TMPtype = string | "TMP";
+export const imageGenerator = async () => {
+  console.log("Loading wasm module...");
+  const wasm = await import("wasm");
+  console.log("Wasm module loaded!");
+  return wasm;
+};

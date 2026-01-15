@@ -3,11 +3,9 @@
   "version": "1.0.0",
   "main": "src/index.ts",
   "devDependencies": {
-    "@rsbuild/core": "1.4.13",
-    "typescript": "5.9.2"
+    "wasm": "file:./src/rust/pkg"
   },
   "scripts": {
-    "build": "tsc",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
