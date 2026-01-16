@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { loadWasmModule } from "@cube/image-generator";
+import { loadWasmModule } from "@cube/image-generator/loadWasmModule";
 
 export const useImageAsUnit8Array = (
   width: number,
