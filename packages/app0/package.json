@@ -6,8 +6,7 @@
   "main": "./index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start:dist": "cd ./dist && node ./index.js",
-    "start": "npm run build && npm run start:dist",
+    "start": "cd ./dist && node ./index.js",
     "dev": "rsbuild dev",
     "stats": "RSDOCTOR=true npm run build",
     "build": "rsbuild build"
