@@ -18,8 +18,8 @@
   },
   "homepage": "https://github.com/abk182/cube#readme",
   "workspaces": [
-    "packages/app0",
+    "packages/image-generator",
     "packages/app1",
-    "packages/image-generator"
+    "packages/app0"
   ]
 }

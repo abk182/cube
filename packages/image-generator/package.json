@@ -1,18 +1,23 @@
 {
   "name": "@cube/image-generator",
-  "version": "1.0.0",
-  "devDependencies": {
-    "wasm": "file:./src/rust/pkg",
-    "wasm-pack": "^0.13.1"
-  },
+  "version": "0.0.0",
+  "type": "module",
+  "types": "./dist/index.d.ts",
+  "main": "./dist/index.js",
+  "files": [
+    "dist"
+  ],
   "scripts": {
-    "build": "wasm-pack build ./src/rust",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "wasm-pack build ./src/rust && rslib build",
+    "dev": "rslib build --watch"
   },
-  "exports": {
-    "./loadWasmModule": "./src/index.ts"
+  "dependencies": {
+    "wasm": "file:./src/rust/pkg"
   },
-  "author": "",
-  "license": "ISC",
-  "description": ""
+  "devDependencies": {
+    "wasm-pack": "^0.13.1",
+    "@rslib/core": "^0.19.2",
+    "@types/node": "^24.10.7",
+    "typescript": "^5.9.3"
+  }
 }
