@@ -12,12 +12,14 @@
     "dev": "rslib build --watch"
   },
   "dependencies": {
+    "react": "18.2.0",
     "wasm": "file:./src/rust/pkg"
   },
   "devDependencies": {
-    "wasm-pack": "^0.13.1",
     "@rslib/core": "^0.19.2",
     "@types/node": "^24.10.7",
-    "typescript": "^5.9.3"
+    "@types/react": "^18.2.55",
+    "typescript": "^5.9.3",
+    "wasm-pack": "^0.13.1"
   }
 }

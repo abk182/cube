@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Image } from "./image";
 import styles from "./style.css";
-import { useImageAsUnit8Array } from "./use-image-as-unit-8-array";
+import { useImageAsUnit8Array } from "@cube/image-generator";
 
 export const Cube = () => {
   const [width, setWidth] = useState(400);
@@ -81,10 +81,8 @@ export const Cube = () => {
           {animated ? "Stop" : "Start"}
         </button>
       </div>
-      {unit8Array ? (
+      {unit8Array && (
         <Image width={width} height={height} data={unit8Array} />
-      ) : (
-        "loading wasm module..."
       )}
     </div>
   );
