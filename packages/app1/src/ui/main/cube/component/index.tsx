@@ -1,3 +1,4 @@
+'use client';
 import React, { useEffect, useState } from "react";
 import { Image } from "./image";
 import styles from "./style.css";

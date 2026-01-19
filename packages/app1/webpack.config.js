@@ -1,7 +1,10 @@
 const path = require("path");
-const {
-  ModuleFederationPlugin,
-} = require("@module-federation/enhanced/webpack");
+const { ModuleFederationPlugin } = require("@module-federation/enhanced/webpack");
+const { UseClientServerStubPlugin } = require("./webpack.use-client-stub-plugin");
+const useClientServerStubLoader = path.resolve(
+  __dirname,
+  "webpack.use-client-stub-loader.js",
+);
 const mfConfig = require("./module-federation.config");
 
 const baseConfig = {
@@ -60,6 +63,26 @@ const serverConfig = {
   },
   module: {
     ...baseConfig.module,
+    rules: [
+      {
+        // Strip client-only modules from SSR based on "use client" directive
+        test: /\.(ts|tsx|js|jsx)$/,
+        enforce: "pre",
+        exclude: /node_modules/,
+        use: [
+          {
+            loader: useClientServerStubLoader,
+            options: {
+              stubPath: path.resolve(
+                __dirname,
+                "src/utils/lazy-load-on-client/useClientServerStub.tsx",
+              ),
+            },
+          },
+        ],
+      },
+      ...(baseConfig.module?.rules || []),
+    ],
     parser: {
       javascript: {
         // Bundle dynamic imports into the same chunk for Node build
@@ -77,6 +100,15 @@ const serverConfig = {
       ),
     },
   },
+  plugins: [
+    ...(baseConfig.plugins || []),
+    new UseClientServerStubPlugin({
+      stubPath: path.resolve(
+        __dirname,
+        "src/utils/lazy-load-on-client/useClientServerStub.tsx",
+      ),
+    }),
+  ],
 };
 
 const clientConfig = {
