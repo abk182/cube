@@ -9,7 +9,8 @@
     "start": "cd ./dist && node ./index.js",
     "dev": "rsbuild dev",
     "stats": "RSDOCTOR=true npm run build",
-    "build": "rsbuild build"
+    "clean": "node ../../scripts/clean-dist.cjs dist",
+    "build": "npm run clean && rsbuild build"
   },
   "author": "",
   "license": "ISC",
