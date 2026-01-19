@@ -5,7 +5,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "npm run build --workspaces --if-present",
-    "start": "npm run start --workspace=packages/app1 & npm run start --workspace=packages/app0"
+    "start": "npm run start --workspace=packages/app1 & npm run start --workspace=packages/app0",
+    "dev": "npm run build && npm run start"
   },
   "repository": {
     "type": "git",
@@ -18,8 +19,8 @@
   },
   "homepage": "https://github.com/abk182/cube#readme",
   "workspaces": [
-    "packages/app0",
+    "packages/image-generator",
     "packages/app1",
-    "packages/image-generator"
+    "packages/app0"
   ]
 }
