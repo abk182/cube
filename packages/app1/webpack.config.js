@@ -1,6 +1,5 @@
 const path = require("path");
 const { ModuleFederationPlugin } = require("@module-federation/enhanced/webpack");
-const { UseClientServerStubPlugin } = require("./webpack.use-client-stub-plugin");
 const useClientServerStubLoader = path.resolve(
   __dirname,
   "webpack.use-client-stub-loader.js",
@@ -90,15 +89,6 @@ const serverConfig = {
       },
     },
   },
-  plugins: [
-    ...(baseConfig.plugins || []),
-    new UseClientServerStubPlugin({
-      stubPath: path.resolve(
-        __dirname,
-        "src/utils/lazy-load-on-client/useClientServerStub.tsx",
-      ),
-    }),
-  ],
 };
 
 const clientConfig = {
