@@ -8,7 +8,8 @@
     "dist"
   ],
   "scripts": {
-    "build": "wasm-pack build ./src/rust && rslib build",
+    "clean": "node ../../scripts/clean-dist.cjs dist",
+    "build": "npm run clean && wasm-pack build ./src/rust && rslib build",
     "dev": "rslib build --watch"
   },
   "dependencies": {
