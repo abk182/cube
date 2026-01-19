@@ -90,16 +90,6 @@ const serverConfig = {
       },
     },
   },
-  resolve: {
-    ...baseConfig.resolve,
-    alias: {
-      ...(baseConfig.resolve?.alias || {}),
-      lazyOnlyOnClient: path.resolve(
-        __dirname,
-        "src/utils/lazy-load-on-client/lazyOnlyOnClient.server.ts",
-      ),
-    },
-  },
   plugins: [
     ...(baseConfig.plugins || []),
     new UseClientServerStubPlugin({
@@ -119,16 +109,6 @@ const clientConfig = {
     filename: "client.js",
     path: path.resolve(__dirname, "dist"),
   },
-  resolve: {
-    ...baseConfig.resolve,
-    alias: {
-      ...(baseConfig.resolve?.alias || {}),
-      lazyOnlyOnClient: path.resolve(
-        __dirname,
-        "src/utils/lazy-load-on-client/lazyOnlyOnClient.client.ts",
-      ),
-    },
-  },
 };
 
 const remoteUiConfig = {
@@ -138,15 +118,6 @@ const remoteUiConfig = {
   output: {
     filename: "[name].js",
     path: path.resolve(__dirname, "dist/ui"),
-  },
-  resolve: {
-    extensions: [".tsx", ".ts", ".js"],
-    alias: {
-      lazyOnlyOnClient: path.resolve(
-        __dirname,
-        "src/utils/lazy-load-on-client/lazyOnlyOnClient.client.ts",
-      ),
-    },
   },
   plugins: [new ModuleFederationPlugin(mfConfig)],
 };

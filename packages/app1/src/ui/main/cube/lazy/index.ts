@@ -1,7 +1,6 @@
 import React from "react";
 import { sleep } from "../../../../utils/sleep";
-import { lazyOnlyOnClient } from "lazyOnlyOnClient";
 
-export const Cube = lazyOnlyOnClient(() =>
+export const Cube = React.lazy(() =>
   sleep().then(() => import("../component"))
 );
