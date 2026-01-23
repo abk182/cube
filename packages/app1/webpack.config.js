@@ -2,7 +2,7 @@ const path = require("path");
 const { ModuleFederationPlugin } = require("@module-federation/enhanced/webpack");
 const useClientServerStubLoader = path.resolve(
   __dirname,
-  "webpack.use-client-stub-loader.js",
+  "webpack.client-stub-loader.js",
 );
 const mfConfig = require("./module-federation.config");
 
@@ -74,7 +74,7 @@ const serverConfig = {
             options: {
               stubPath: path.resolve(
                 __dirname,
-                "src/utils/lazy-load-on-client/useClientServerStub.tsx",
+                "src/utils/client-stub/index.tsx",
               ),
             },
           },
