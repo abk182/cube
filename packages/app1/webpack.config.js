@@ -1,6 +1,6 @@
 const path = require("path");
 const { ModuleFederationPlugin } = require("@module-federation/enhanced/webpack");
-const useClientServerStubLoader = path.resolve(
+const clientStubLoader = path.resolve(
   __dirname,
   "webpack.client-stub-loader.js",
 );
@@ -70,7 +70,7 @@ const serverConfig = {
         exclude: /node_modules/,
         use: [
           {
-            loader: useClientServerStubLoader,
+            loader: clientStubLoader,
             options: {
               stubPath: path.resolve(
                 __dirname,
