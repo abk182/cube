@@ -65,6 +65,18 @@ const clientConfig = Object.assign(
       filename: "client.js",
       path: path.resolve(__dirname, "dist"),
     },
+    devServer: {
+      client: {
+        overlay: false,
+      },
+      static: path.resolve(__dirname, "dist"),
+      proxy: [
+        {
+          context: ["/**"],
+          target: `http://localhost:8081`,
+        },
+      ],
+    },
   },
   config
 );
