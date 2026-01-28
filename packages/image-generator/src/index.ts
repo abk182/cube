@@ -24,13 +24,13 @@ export const useImageAsUnit8Array = (
   useEffect(() => {
     loadWasmModule().then((m) => {
       wasmRef.current = m;
-      setState(wasmRef.current.draw_cube(width, height, x, y, z));
+      setState(wasmRef.current.get_raw_image_buffer(width, height, x, y, z));
     });
   }, []);
 
   useEffect(() => {
     if (wasmRef.current != null) {
-      setState(wasmRef.current.draw_cube(width, height, x, y, z));
+      setState(wasmRef.current.get_raw_image_buffer(width, height, x, y, z));
     }
   }, [width, height, x, y, z]);
 
